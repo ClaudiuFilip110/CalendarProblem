@@ -4,6 +4,8 @@ At the bottom I have included some photos containing personal notes.
 #### *_Problem: Given the calendar booked time of two people find all available time they can meet._*
 ![sample](https://user-images.githubusercontent.com/44347749/78875638-e1113980-7a56-11ea-86fd-5b850ff0cfa7.PNG)<br>
 
+####the class CalendarProblem contains some tests.
+
 ### Issues  with the problem.
 I have discovered 2 issues with the provided problem.
 1. a typo. Instead of Booked calendar 2 it says Booked calendar 1 
