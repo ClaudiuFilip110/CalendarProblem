@@ -23,19 +23,19 @@ Having these two arrays of available time we can go through both of them at the 
   `String hour`<br>
   `String minutes `<br>
   
-    Both are String so we can read the data easier.<br>
+    Both are String so we can read the data easier.
     This way we can write "03:00" instead of 3:0
    
   ### Important methods:
    
   `public int isTimeHigher(Time t2)`<br>
       
-      return 1 if t1 > t2<br>
-      return 0 if t1 = t2<br>
-      return -1 if t1 < t2<br>
+      return 1 if t1 > t2
+      return 0 if t1 = t2
+      return -1 if t1 < t2
   `static boolean isBiggerThanMeetingTime(Time t1, Time t2, Time meetingTime)`<br>
       
-      returns true if diference between t1 si t2 is higher than meetingTime<br>
+      returns true if diference between t1 si t2 is higher than meetingTime
     ex: t1 = 9:00, t2 = 10:00, meetingTime = 00:30
       return true because 10 - 9(60 min) > 30 min
    
