@@ -21,12 +21,16 @@ public class CalendarProblem {
         test1();
         System.out.println("\n----------------");
         test2();
+        System.out.println("\n----------------");
+        test3();
+        System.out.println("\n----------------");
+        test4();
+        System.out.println("\n----------------");
+        test5();
         
     }
     
     public static void test1() {
-        
-        
         PeriodOfTime pOfTime1 = new PeriodOfTime("9:00,10:30");
         PeriodOfTime pOfTime2 = new PeriodOfTime("12:00,13:00");
         PeriodOfTime pOfTime3 = new PeriodOfTime("16:00,18:00");
@@ -111,4 +115,146 @@ public class CalendarProblem {
             System.out.print(x + " ");
         }
     }
+    
+    public static void test3() {
+        PeriodOfTime pOfTime1 = new PeriodOfTime("11:00,12:00");
+        PeriodOfTime pOfTime2 = new PeriodOfTime("13:30,15:30");
+        PeriodOfTime pOfTime3 = new PeriodOfTime("16:30,18:00");
+        
+        PeriodOfTime restrictions1 = new PeriodOfTime("10:00,20:00");
+        
+        List<PeriodOfTime> bookedCal1 = new ArrayList<>();
+        bookedCal1.add(pOfTime1);
+        bookedCal1.add(pOfTime2);
+        bookedCal1.add(pOfTime3);
+        
+        Calendar cal1 = new Calendar(bookedCal1,restrictions1);
+        
+        PeriodOfTime pOfTime21 = new PeriodOfTime("10:00,12:00");
+        PeriodOfTime pOfTime22 = new PeriodOfTime("13:30,15:00");
+        PeriodOfTime pOfTime23 = new PeriodOfTime("16:00,18:30");
+        PeriodOfTime restrictions2 = new PeriodOfTime("10:00,20:00");
+        List<PeriodOfTime> bookedCal2 = new ArrayList<>();
+        bookedCal2.add(pOfTime21);
+        bookedCal2.add(pOfTime22);
+        bookedCal2.add(pOfTime23);
+        Calendar cal2 = new Calendar(bookedCal2,restrictions2);
+        
+        Time meetingTime = new Time("00:30");
+        
+        PeriodOfTime[] available1 = cal1.availableTime();
+        PeriodOfTime[] available2 = cal2.availableTime();
+        /*System.out.println("booked ");
+        for(PeriodOfTime x : available1){
+            System.out.print(x + " ");
+        }
+            System.out.println("\navai ");
+        for(PeriodOfTime x : available2){
+            System.out.print(x + " ");
+        }
+        System.out.println("");*/
+        System.out.print("Time when they could have  a meeting: ");
+        PeriodOfTime[] bothMeetingTime = Calendar.meetingAvailabilityTime(available1, available2, meetingTime);
+       
+        
+        for(PeriodOfTime x : bothMeetingTime){
+            System.out.print(x + " ");
+        }
+    }
+    
+    public static void test4() {
+        PeriodOfTime pOfTime1 = new PeriodOfTime("09:00,11:00");
+        PeriodOfTime pOfTime2 = new PeriodOfTime("12:00,13:00");
+        PeriodOfTime pOfTime3 = new PeriodOfTime("13:30,15:00");
+        PeriodOfTime pOfTime4 = new PeriodOfTime("15:30,17:00");
+        
+        PeriodOfTime restrictions1 = new PeriodOfTime("09:00,17:00");
+        
+        List<PeriodOfTime> bookedCal1 = new ArrayList<>();
+        bookedCal1.add(pOfTime1);
+        bookedCal1.add(pOfTime2);
+        bookedCal1.add(pOfTime3);
+        
+        Calendar cal1 = new Calendar(bookedCal1,restrictions1);
+        
+        PeriodOfTime pOfTime21 = new PeriodOfTime("09:00,11:00");
+        PeriodOfTime pOfTime22 = new PeriodOfTime("11:30,12:00");
+        PeriodOfTime pOfTime23 = new PeriodOfTime("12:30,13:00");
+        PeriodOfTime restrictions2 = new PeriodOfTime("09:00,13:00");
+        List<PeriodOfTime> bookedCal2 = new ArrayList<>();
+        bookedCal2.add(pOfTime21);
+        bookedCal2.add(pOfTime22);
+        bookedCal2.add(pOfTime23);
+        Calendar cal2 = new Calendar(bookedCal2,restrictions2);
+        
+        Time meetingTime = new Time("00:30");
+        
+        PeriodOfTime[] available1 = cal1.availableTime();
+        PeriodOfTime[] available2 = cal2.availableTime();
+        /*System.out.println("booked ");
+        for(PeriodOfTime x : available1){
+            System.out.print(x + " ");
+        }
+            System.out.println("\navai ");
+        for(PeriodOfTime x : available2){
+            System.out.print(x + " ");
+        }
+        System.out.println("");*/
+        System.out.print("Time when they could have  a meeting: ");
+        PeriodOfTime[] bothMeetingTime = Calendar.meetingAvailabilityTime(available1, available2, meetingTime);
+       
+        
+        for(PeriodOfTime x : bothMeetingTime){
+            System.out.print(x + " ");
+        }
+    }
+    
+    public static void test5() {
+        PeriodOfTime pOfTime1 = new PeriodOfTime("10:00,12:00");
+        PeriodOfTime pOfTime2 = new PeriodOfTime("13:00,14:00");
+        PeriodOfTime pOfTime3 = new PeriodOfTime("14:30,16:00");
+        PeriodOfTime pOfTime4 = new PeriodOfTime("17:00,18:00");
+        
+        PeriodOfTime restrictions1 = new PeriodOfTime("10:00,18:00");
+        
+        List<PeriodOfTime> bookedCal1 = new ArrayList<>();
+        bookedCal1.add(pOfTime1);
+        bookedCal1.add(pOfTime2);
+        bookedCal1.add(pOfTime3);
+        bookedCal1.add(pOfTime4);
+        
+        Calendar cal1 = new Calendar(bookedCal1,restrictions1);
+        
+        PeriodOfTime pOfTime21 = new PeriodOfTime("11:30,13:00");
+        PeriodOfTime pOfTime22 = new PeriodOfTime("14:00,17:00");
+        PeriodOfTime pOfTime23 = new PeriodOfTime("18:00,19:00");
+        PeriodOfTime restrictions2 = new PeriodOfTime("11:00,20:00");
+        List<PeriodOfTime> bookedCal2 = new ArrayList<>();
+        bookedCal2.add(pOfTime21);
+        bookedCal2.add(pOfTime22);
+        bookedCal2.add(pOfTime23);
+        Calendar cal2 = new Calendar(bookedCal2,restrictions2);
+        
+        Time meetingTime = new Time("00:30");
+        
+        PeriodOfTime[] available1 = cal1.availableTime();
+        PeriodOfTime[] available2 = cal2.availableTime();
+        /*System.out.println("booked");
+        for(PeriodOfTime x : available1){
+            System.out.print(x + " ");
+        }
+            System.out.println("\navai ");
+        for(PeriodOfTime x : available2){
+            System.out.print(x + " ");
+        }
+        System.out.println("");*/
+        System.out.print("Time when they could have  a meeting: ");
+        PeriodOfTime[] bothMeetingTime = Calendar.meetingAvailabilityTime(available1, available2, meetingTime);
+       
+        
+        for(PeriodOfTime x : bothMeetingTime){
+            System.out.print(x + " ");
+        }
+    }
+    
 }

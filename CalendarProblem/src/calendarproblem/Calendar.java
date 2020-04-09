@@ -80,11 +80,11 @@ public class Calendar {
         //[9:00,21:00]
         //1 edge case
         int k=1, i;
-        if(booked.length==1) {
+        //if(booked.length==1) {
             if(booked[0].getFirstTime().isTimeHigher(beginAv)==1) {
                     holdingVector[0] = new PeriodOfTime(beginAv,booked[0].getFirstTime());
                 } 
-        }
+        //}
         for(i=0;i<booked.length-1;i++) {
             /*
             if(i==0) {
@@ -115,7 +115,7 @@ public class Calendar {
     
     
     public static PeriodOfTime[] meetingAvailabilityTime(PeriodOfTime[] av1, PeriodOfTime[] av2, Time meetingTime){
-        int i=1,j=1,n = av1.length, m=av2.length;
+        int i=0,j=0,n = av1.length, m=av2.length;
         //alegem max dintre primele si min din al doilea
         //dar trebuie sa avem grija si de reziduu([min, max2])
         //comparam reziduu cu urm elem.
@@ -137,10 +137,12 @@ public class Calendar {
             reziduu = new PeriodOfTime(minim, av2[0].getSecondTime()); 
         }
         PeriodOfTime[] meetings = new PeriodOfTime[10];
-        
-        if(Time.isBiggerThanMeetingTime(maxim, minim,meetingTime)==true)
+        //System.out.println("max si min sunt "+maxim + "'" + minim);
+        if(Time.isBiggerThanMeetingTime(maxim, minim,meetingTime)==true && maxim.isTimeHigher(minim)==-1)
             meetings[0] = new PeriodOfTime(maxim, minim);
-        
+        else
+            i++;
+        //System.out.println("meetings[0]="+meetings[0]);
         //System.out.println("\nmax si min sunt " + maxim + " " + minim);
         //System.out.println("reziduu is "+ reziduu);
         while(i!=n && j!=m){
